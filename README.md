@@ -80,19 +80,21 @@ The [thickness] category has four key-value pairs, namely :
 The point.number key takes integer numbers, the maximum and minimum keys take floating point numbers, and are used for ploting the figures and printing the table. Because of the log scale of the thickness axis, the minimum must be greater than 0.0. If it is set to 0.0, the corresponding value will be reassigned to 1.e-10. The unit key take a string as value and is used for the computation of the scaling factor of the input cross-section coefficients.
 The supported units of the penetration depth, required for the non-equilibrium solutions, are : "10 mg/cm2" or "xg/cm2" where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). Below is the list of supported units for the penetration depth (target thikness) :
 
-* fg/cm2        (scale factor =  1.e-15)
-* pg/cm2        (scale factor =  1.e-12)
-* ng/cm2        (scale factor =  1.e-9)
-* mug/cm2       (scale factor =  1.e-6)
-* mg/cm2        (scale factor =  1.e-3)
-* cg/cm2        (scale factor =  1.e-2)
-* 10 mg/cm2     (scale factor =  1.e-2)
-* g/cm2         (scale factor =  1.0)
-* kg/cm2        (scale factor =  1.e+3)
-* Mg/cm2        (scale factor =  1.e+6)
-* Gg/cm2        (scale factor =  1.e+9)
-* Tg/cm2        (scale factor =  1.e+12)
-* Pg/cm2        (scale factor =  1.e+15)
+| Supported units | Scale factor |
+|:---------------:|:------------:|
+| fg/cm2          | 1.e-15       |
+| pg/cm2          | 1.e-12       |
+| ng/cm2          | 1.e-9        |
+| mug/cm2         | 1.e-6        |
+| mg/cm2          | 1.e-3        |
+| cg/cm2          | 1.e-2        |
+| 10 mg/cm2       | 1.e-2        |
+| g/cm2           | 1.0          |
+| kg/cm2          | 1.e+3        |
+| Mg/cm2          | 1.e+6        |
+| Gg/cm2          | 1.e+9        |
+| Tg/cm2          | 1.e+12       |
+| Pg/cm2          | 1.e+15       |
 
 Proper units and proper minimum/maximum values combination allow a better visibility/details of the resulting curves.
 
