@@ -161,10 +161,9 @@ The variable key-value pairs are the initial conditions (ion charge state in a v
 | ...          | intial conditions   | 0.0                     | floating point (double precision) | the sum of F0.imin to F0.imax must be 1                       |
 | F0.imax      | intial conditions   | 0.0                     | floating point (double precision) | imax is an integer (unsigned)                                 |
 |              |                     |                         |                                   |                                                               |
-| Q.imin.jmin  | cross-sections coef | 0.0                     | floating point (double precision) | imin, imax, jmin, jmax are integers (unsigned)                |
-| ...          | cross-sections coef | 0.0                     | floating point (double precision) | imax-imin must be equal to jmax-jmin                          |
-| ...          | cross-sections coef | 0.0                     | floating point (double precision) | to form a nonsingular square matrix                           |
-| Q.jmax.jmax  | cross-sections coef | 0.0                     | floating point (double precision) | i.e. no zero-rows or zero-columns should be provided          |
+| Q.imin.jmin  | cross-sections coef | 0.0                     | floating point (double precision) | imin, jmin are integers (unsigned)                |
+| ...          | cross-sections coef | 0.0                     | floating point (double precision) |                          |
+| Q.jmax.jmax  | cross-sections coef | 0.0                     | floating point (double precision) | imax-imin must be equal to jmax-jmin to form a nonsingular square matrix i.e. no zero-rows or zero-columns should be provided          |
 
 
 The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). The supported units are summarized in the following table :
