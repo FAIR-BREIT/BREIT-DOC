@@ -9,7 +9,7 @@ The differential equations (non-equilibrium case) are solved using the eigenvalu
 
 BREIT needs electron-loss and -capture cross-sections, as well as initial conditions as inputs in order to solve the (non-equilibrium) Betz equations. Other inputs are required, like cross-section units, thickness units, target mass number ... Only charge (or state) q greater or equal than zero and less than 200 are supported. 
 
-#### Format description
+#### Format description : introduction
 
 An [INI-like format](https://en.wikipedia.org/wiki/INI_file) is used as input file. The INI-like input files are divided in several categories. Categories are indicated by square brackets and are :
 
@@ -30,19 +30,23 @@ Under each category key-value pairs can be found, for example as follow:
     key2 = value2
 ```
 
-The proper syntax of the categories and the keys must be respected and will be described later.
+The proper syntax of the categories and the keys must be respected and will be described later. The order of the keys inside a category is irrelevant. 
+Some keys are not required to run the program because they have default values, but some others, however, are required.
 Input file examples can be found [here](https://github.com/FAIR-BREIT/BREIT-CORE/blob/master/data/input/Example-8lvl-system-bis.txt) or [there](https://github.com/FAIR-BREIT/BREIT-CORE/blob/master/data/input/Example-15lvl-system.txt). 
 
-#### Category and key-value description
+#### Categories and keys-values description
 
-##### [projectile]
+##### [projectile] category
 The [projectile] category has two key-value pairs, namely :
 
-* symbol (default=unknown projectile)
-* energy (default=unknown energy)
+
+| key    | default value      | value type |
+|:------:|:------------------:|:----------:|
+| symbol | unknown projectile | string     |
+| energy | unknown energy     | string     |
 
 and are only used to form the title in the output files. Both keys take a string as value.
-Example:
+###### Example:
 ```bash
     [projectile]
     symbol      = U
@@ -51,16 +55,18 @@ Example:
 
 If the key-value pairs are not provided in the input file, the default values shown above in parenthesis are assigned.
 
-##### [target]
+##### [target] category
 The [target] category has three key-value pairs, namely :
 
-* symbol      (default=unknown target)
-* mass.number (required, no default)
-* pressure    (default=unknown target pressure)
+| key         | default value           | value type                        |
+|:-----------:|:-----------------------:|:---------------------------------:|
+| symbol      | unknown target          | string                            |
+| mass.number | required, no default    | floating point (double precision) |
+| pressure    | unknown target pressure | string                            |
 
 The symbol and pressure keys are only used to form the title in the output files. These two keys take a string as value. The mass.number key take a floating point number (double precision) and is used for the computation of the scaling factor of the input cross-section coefficients. Therefore the mass.number value is a required value that must be positive and provided by the user. Note that the atomic mass value can be given instead of the mass number for a proper scaling.
 
-Example:
+###### Example:
 ```bash
     [target]
     symbol      = Ar
@@ -68,14 +74,15 @@ Example:
     pressure    = 1 mbar
 ```
 
-
-##### [thickness]
+##### [thickness] category
 The [thickness] category has four key-value pairs, namely :
 
-* unit          (default=mug/cm2)
-* maximum       (default=20.0)
-* minimum       (default=1.e-3)
-* point.number  (default=1000)
+| key          | default value           | value type                        |
+|:------------:|:-----------------------:|:---------------------------------:|
+| unit         | mug/cm2                 | string                            |
+| minimum      | 1.e-3                   | floating point (double precision) |
+| maximum      | 20.0                    | floating point (double precision) |
+| point.number | 1000                    | integer                           |
 
 The point.number key takes integer numbers, the maximum and minimum keys take floating point numbers, and are used for ploting the figures and printing the table. Because of the log scale of the thickness axis, the minimum must be greater than 0.0. If it is set to 0.0, the corresponding value will be reassigned to 1.e-10. The unit key take a string as value and is used for the computation of the scaling factor of the input cross-section coefficients.
 The supported units of the penetration depth, required for the non-equilibrium solutions, are : "10 mg/cm2" or "xg/cm2" where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). Below is the list of supported units for the penetration depth (target thikness) :
@@ -99,7 +106,7 @@ The supported units of the penetration depth, required for the non-equilibrium s
 Proper units and proper minimum/maximum values combination allow a better visibility/details of the resulting curves.
 
 
-Example:
+###### Example:
 ```bash
     unit         = cg/cm2
     maximum      = 30
@@ -108,12 +115,14 @@ Example:
 ```
 
 
-##### [fraction]
+##### [fraction] category
 The [thickness] category has three key-value pairs, namely :
 
-* minimum (default=0.0)
-* maximum (default=1.1)
-* epsilon (default=0.001)
+| key          | default value  | value type                        |
+|:------------:|:--------------:|:---------------------------------:|
+| minimum      | 0.0            | floating point (double precision) |
+| maximum      | 1.1            | floating point (double precision) |
+| epsilon      | 0.001          | floating point (double precision) |
 
 The maximum and minimum keys take floating point numbers, and are only used for plotting the figures (i.e. setting up the ion fraction axis range). The epsilon key takes a floating point as value (double precision) and is used to compute the estimation of the distance to equilibrium for each ion fraction. The algorithm used for this estimation is the following :
 
@@ -129,22 +138,50 @@ If the condition is satisfied at x=xmax, a warning in the output results is prin
 
 
 
-Example:
+###### Example:
 ```bash
     [fraction]
     maximum     = 1.
     epsilon     = 0.001
 ```
-Note that here the minimum is not provided and will have a value of 0.0 by default.
+Note that in this example the minimum key is not provided and will have a value of 0.0 by default.
 
 
 
-##### [cross.section]
+##### [cross.section] category
+The [cross.section] category has one key-value pair, namely the cross-sections unit, and variable key-value paris depending on the dimension of the system to be solved.
+The variable key-value pairs are the initial conditions (ion charge state in a vector form) and cross-section coefficients in a square matrix form.
 
-Supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). 
+
+| key          | meaning             | default value           | value type                        | comments                                                      |
+|:------------:|:-------------------:|:-----------------------:|:---------------------------------:|:-------------------------------------------------------------:|
+| unit         | cross-section units | required, no default    | string                            | see table below                                               |
+|:------------:|:-------------------:|:-----------------------:|:---------------------------------:|:-------------------------------------------------------------:|
+| F0.imin      | intial conditions   | 0.0                     | floating point (double precision) | imin is an integer (unsigned)                                 |
+| ...          | intial conditions   | 0.0                     | floating point (double precision) | the sum of F0.imin to F0.imax must be 1                       |
+| F0.imax      | intial conditions   | 0.0                     | floating point (double precision) | imax is an integer (unsigned)                                 |
+|:------------:|:-------------------:|:-----------------------:|:---------------------------------:|:-------------------------------------------------------------:|
+| Q.imin.jmin  | cross-sections coef | 0.0                     | floating point (double precision) | imin, imax, jmin, jmax are integers (unsigned)                |
+| ...          | cross-sections coef | 0.0                     | floating point (double precision) | imax-imin must be equal to jmax-jmin                          |
+| ...          | cross-sections coef | 0.0                     | floating point (double precision) | to form a nonsingular square matrix                           |
+| Q.jmax.jmax  | cross-sections coef | 0.0                     | floating point (double precision) | i.e. no zero-rows or zero-columns should be provided          |
 
 
+The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). The supported units are summarized in the following table :
 
+| Supported units | Scale factor |
+|:---------------:|:------------:|
+| cm2             | 1.0          |
+| 1e-16 cm2       | 1.e-16       |
+| pb              | 1.e-36       |
+| nb              | 1.e-33       |
+| mub             | 1.e-30       |
+| mb              | 1.e-27       |
+| b               | 1.e-24       |
+| kb              | 1.e-21       |
+| Mb              | 1.e-18       |
+| Gb              | 1.e-15       |
+| Tb              | 1.e-12       |
 
 #### Output
 
