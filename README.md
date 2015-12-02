@@ -17,7 +17,7 @@
     - [[fraction] category](#fraction-category)
         - [Example](#fraction-category-example)
     - [[cross.section] category](#cross-section-category)
-        [Example](#cross-section-category-example)
+        - [Example](#cross-section-category-example)
 - [Output](#output)
 
 ---
