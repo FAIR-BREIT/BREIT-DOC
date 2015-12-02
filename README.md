@@ -37,7 +37,7 @@ Input file examples can be found [here](https://github.com/FAIR-BREIT/BREIT-CORE
 ## Categories and keys-values description
 
 ### [projectile] category
-The [projectile] category has two key-value pairs, namely :
+The [projectile] category has two key-value pairs, which are summarized in the table below :
 
 
 | key    | default value      | value type |
@@ -53,10 +53,10 @@ and are only used to form the title in the output files. Both keys take a string
     energy      = 1.4 MeV/u
 ```
 
-If the key-value pairs are not provided in the input file, the default values shown above in parenthesis are assigned.
+If the key-value pairs are not provided in the input file, the default values shown above in the table are assigned to the key.
 
 ### [target] category
-The [target] category has three key-value pairs, namely :
+The [target] category has three key-value pairs, which are summarized in the table below :
 
 | key         | default value           | value type                        |
 |:-----------:|:-----------------------:|:---------------------------------:|
@@ -75,7 +75,7 @@ The symbol and pressure keys are only used to form the title in the output files
 ```
 
 ### [thickness] category
-The [thickness] category has four key-value pairs, namely :
+The [thickness] category has four key-value pairs, which are summarized in the table below :
 
 | key          | default value           | value type                        |
 |:------------:|:-----------------------:|:---------------------------------:|
@@ -85,7 +85,7 @@ The [thickness] category has four key-value pairs, namely :
 | point.number | 1000                    | integer                           |
 
 The point.number key takes integer numbers, the maximum and minimum keys take floating point numbers, and are used for ploting the figures and printing the table. Because of the log scale of the thickness axis, the minimum must be greater than 0.0. If it is set to 0.0, the corresponding value will be reassigned to 1.e-10. The unit key take a string as value and is used for the computation of the scaling factor of the input cross-section coefficients.
-The supported units of the penetration depth, required for the non-equilibrium solutions, are : "10 mg/cm2" or "xg/cm2" where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). Below is the list of supported units for the penetration depth (target thikness) :
+The supported units of the penetration depth, required for the non-equilibrium solutions, are : "10 mg/cm2" or "xg/cm2" where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). The table below shows the list of supported units for the penetration depth (target thickness) with the corresponding scale factor of the cross-section coefficients :
 
 | Supported units | Scale factor |
 |:---------------:|:------------:|
@@ -116,7 +116,7 @@ Proper units and proper minimum/maximum values combination allow a better visibi
 
 
 ### [fraction] category
-The [thickness] category has three key-value pairs, namely :
+The [thickness] category has three key-value pairs, which are summarized in the table below :
 
 | key          | default value  | value type                        |
 |:------------:|:--------------:|:---------------------------------:|
