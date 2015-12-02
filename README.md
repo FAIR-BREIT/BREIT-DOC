@@ -124,7 +124,20 @@ The [thickness] category has three key-value pairs, which are summarized in the 
 | maximum      | 1.1            | floating point (double precision) |
 | epsilon      | 0.001          | floating point (double precision) |
 
-The maximum and minimum keys take floating point numbers, and are only used for plotting the figures (i.e. setting up the ion fraction axis range). The epsilon key takes a floating point as value (double precision) and is used to compute the estimation of the distance to equilibrium for each ion fraction. The algorithm used for this estimation is the following :
+The maximum and minimum keys take floating point numbers, and are only used for plotting the figures (i.e. setting up the ion fraction axis range). The epsilon key takes a floating point as value (double precision) and is used to compute the estimation of the distance to equilibrium for each ion fraction. 
+
+
+#### Example:
+```bash
+    [fraction]
+    maximum     = 1.
+    epsilon     = 0.001
+```
+Note that in this example the minimum key is not provided and will have a value of 0.0 by default.
+
+#### Remark about the epsilon value:
+
+The algorithm used for the distance-to-equilibrium estimation is the following :
 
 For each fraction, starting from xmax (=maximum key, defined in the [thickness] category) and going towards xmin, the distance-to-equilibrium is estimated if the following condition is satisfied:
 
@@ -136,17 +149,11 @@ If the condition is satisfied at x=xmax, a warning in the output results is prin
 * thickness minimum and maximum values (x-axis range)
 * thickness point.number (the algorithm go through steps of (xmax-xmin)/point.number)
 
-The epsilon value should not be too large, otherwise the estimation will be erroneous. It should not be too small either, because the solution at equilibrium is asymptotic and is never reached (or reached at infinity). Therefore if the epsilon value is too small the estimated distance will be most likely at the range limit (xmax). If the epsilon value is reasonnable (on the order of 0.1% or 1%) and the estimated distance is found at xmax, then, most probably, the thickness units or thickness range should be modified accordingly. It is up to the user to find the proper setting for reliable distance-to-equilibrium estimation. 
+
+The epsilon value should not be too large, otherwise the estimation will be erroneous. It should not be too small either, because the solution at equilibrium is asymptotic and is never reached (or reached at infinity). Therefore if the epsilon value is too small the estimated distance will be most likely at the range limit (xmax). If the epsilon value is reasonnable (on the order of 0.1% or 1%) and the estimated distance is found at xmax, then, most probably, the thickness units or thickness range should be modified accordingly. It is up to the user to find the proper setting for reliable distance-to-equilibrium estimations. 
 
 
 
-#### Example:
-```bash
-    [fraction]
-    maximum     = 1.
-    epsilon     = 0.001
-```
-Note that in this example the minimum key is not provided and will have a value of 0.0 by default.
 
 
 
