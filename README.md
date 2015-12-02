@@ -13,7 +13,7 @@
     - [[target] category](#target-category)
         - [Example](#example-1)
     - [[thickness] category](#thickness-category)
-        - [Thickness units](#Thickness-units)
+        - [Thickness units](#thickness-units)
         - [Example](#example-2)
     - [[fraction] category](#fraction-category)
         - [Example](#example-3)
