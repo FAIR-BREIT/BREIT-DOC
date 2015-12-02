@@ -117,7 +117,7 @@ The maximum and minimum keys take floating point numbers, and are only used for 
 
 For each fraction, starting from xmax (=maximum key, defined in the [thickness] category) and going towards xmin, the distance-to-equilibrium is estimated if the following condition is satisfied:
 
-<img src="https://github.com/FAIR-BREIT/BREIT-DOC/blob/master/figures/distance-to-equilibrium-condition.png" width="150">
+<img src="https://github.com/FAIR-BREIT/BREIT-DOC/blob/master/figures/distance-to-equilibrium-condition.png" width="400">
 
 If the condition is satisfied at x=xmax, a warning in the output results is printed. In addtion to the epsilon value, the estimation may be sensitive to
 
