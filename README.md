@@ -156,11 +156,11 @@ The variable key-value pairs are the initial conditions (ion charge state in a v
 | key          | meaning             | default value           | value type                        | comments                                                      |
 |:------------:|:-------------------:|:-----------------------:|:---------------------------------:|:-------------------------------------------------------------:|
 | unit         | cross-section units | required, no default    | string                            | see table below                                               |
-|:------------:|:-------------------:|:-----------------------:|:---------------------------------:|:-------------------------------------------------------------:|
+|              |                     |                         |                                   |                                                               |
 | F0.imin      | intial conditions   | 0.0                     | floating point (double precision) | imin is an integer (unsigned)                                 |
 | ...          | intial conditions   | 0.0                     | floating point (double precision) | the sum of F0.imin to F0.imax must be 1                       |
 | F0.imax      | intial conditions   | 0.0                     | floating point (double precision) | imax is an integer (unsigned)                                 |
-|:------------:|:-------------------:|:-----------------------:|:---------------------------------:|:-------------------------------------------------------------:|
+|              |                     |                         |                                   |                                                               |
 | Q.imin.jmin  | cross-sections coef | 0.0                     | floating point (double precision) | imin, imax, jmin, jmax are integers (unsigned)                |
 | ...          | cross-sections coef | 0.0                     | floating point (double precision) | imax-imin must be equal to jmax-jmin                          |
 | ...          | cross-sections coef | 0.0                     | floating point (double precision) | to form a nonsingular square matrix                           |
