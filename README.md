@@ -1,5 +1,27 @@
 # [BREIT: Balance Rate Equations for Ion Transportation](http://breit.gsi.de/)
 
+---
+
+**Table of Contents** 
+
+- [Introduction](#introduction)
+    - [Input file format](#input-file-format)
+        - [Format description](#format description)
+- [Categories and keys-values description](#categories-and-keys-values-description)
+    - [[projectile] category](#projectile-category)
+        - [Example](#projectile-category-example)
+    - [[target] category](#target-category)
+        - [Example](#target-category-example)
+    - [[thickness] category](#thickness-category)
+        - [Example](#thickness-category-example)
+    - [[fraction] category](#fraction-category)
+        - [Example](#fraction-category-example)
+    - [[cross.section] category](#cross-section-category)
+        [Example](#cross-section-category-example)
+- [Output](#output)
+
+---
+
 ## Introduction
 
 [BREIT](http://breit.gsi.de/) is an online application which solve analytically the equilibrium and non-equilibrium charge state distributions equations (c.f. [HANS-DIETER BETZ Rev. Mod. Phys. 44, 465](http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.44.465)), provided the cross-sections and initial conditions as input. 
@@ -34,6 +56,8 @@ The proper syntax of the categories and the keys must be respected and will be d
 Some keys are not required to run the program because they have default values, but some others, however, are required.
 Input file examples can be found [here](https://github.com/FAIR-BREIT/BREIT-CORE/blob/master/data/input/Example-8lvl-system-bis.txt) or [there](https://github.com/FAIR-BREIT/BREIT-CORE/blob/master/data/input/Example-15lvl-system.txt). 
 
+---
+
 ## Categories and keys-values description
 
 ### [projectile] category
@@ -55,6 +79,8 @@ and are only used to form the title in the output files. Both keys take a string
 
 If the key-value pairs are not provided in the input file, the default values shown above in the table are assigned to the key.
 
+---
+
 ### [target] category
 The [target] category has three key-value pairs, which are summarized in the table below :
 
@@ -73,6 +99,8 @@ The symbol and pressure keys are only used to form the title in the output files
     mass.number = 40
     pressure    = 1 mbar
 ```
+
+---
 
 ### [thickness] category
 The [thickness] category has four key-value pairs, which are summarized in the table below :
@@ -114,6 +142,7 @@ Proper units and proper minimum/maximum values combination allow a better visibi
     point.number = 200
 ```
 
+---
 
 ### [fraction] category
 The [thickness] category has three key-value pairs, which are summarized in the table below :
@@ -154,7 +183,7 @@ The epsilon value should not be too large, otherwise the estimation will be erro
 
 
 
-
+---
 
 
 ### [cross.section] category
@@ -190,6 +219,8 @@ The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is 
 | Mb              | 1.e-18       |
 | Gb              | 1.e-15       |
 | Tb              | 1.e-12       |
+
+---
 
 ## Output
 
