@@ -159,11 +159,11 @@ The variable key-value pairs are the initial conditions (ion charge state in a v
 |              |                     |                         |                                   |                                                               |
 | F0.imin      | intial conditions   | 0.0                     | floating point (double precision) | imin is an integer (unsigned)                                 |
 | F0.i         | intial conditions   | 0.0                     | floating point (double precision) |             imin < i < imax        |
-| F0.imax      | intial conditions   | 0.0                     | floating point (double precision) | imax is an integer (unsigned).  the sum of F0.imin to F0.imax must be 1                                |
+| F0.imax      | intial conditions   | 0.0                     | floating point (double precision) | imax is an integer (unsigned).  the sum of F0.imin to F0.imax must be 1. Moreover imin and imax must correspond to the imin and imax of the cross-section coefficients (see below in this table)                                |
 |              |                     |                         |                                   |                                                               |
 | Q.imin.jmin  | cross-sections coef | 0.0                     | floating point (double precision) | imin, jmin are integers (unsigned)                |
 | Q.i.j        | cross-sections coef | 0.0                     | floating point (double precision) | i and j are integers (unsigned). Moreover imin < i < imax and jmin < j < jmax                          |
-| Q.jmax.jmax  | cross-sections coef | 0.0                     | floating point (double precision) | imax, jmax are integers (unsigned). Moreover imax-imin must be equal to jmax-jmin to form a nonsingular square matrix i.e. no zero-rows or zero-columns should be provided          |
+| Q.imax.jmax  | cross-sections coef | 0.0                     | floating point (double precision) | imax, jmax are integers (unsigned). Moreover imax-imin must be equal to jmax-jmin to form a nonsingular square matrix i.e. no zero-rows or zero-columns should be provided          |
 
 
 The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). The supported units are summarized in the following table :
