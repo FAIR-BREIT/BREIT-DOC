@@ -1,4 +1,4 @@
-# [BREIT: Balance Rate Equations for Ion Transportation](http://breit.gsi.de/)
+# [BREIT: Balance Rate Equations for Ion Transportation](http://breit.gsi.de/) - Documentation
 
 ---
 
@@ -13,11 +13,13 @@
     - [[target] category](#target-category)
         - [Example](#example-1)
     - [[thickness] category](#thickness-category)
+        - [Thickness units](#Thickness-units)
         - [Example](#example-2)
     - [[fraction] category](#fraction-category)
         - [Example](#example-3)
         - [Remark about the epsilon value](#remark-about-the-epsilon-value)
     - [[cross.section] category](#crosssection-category)
+        - [Cross-section units](#cross-section-units)
         - [Example](#example-4)
 - [Output](#output)
 
@@ -114,6 +116,8 @@ The [thickness] category has four key-value pairs, which are summarized in the t
 | point.number | 1000                    | integer                           |
 
 The point.number key takes integer numbers, the maximum and minimum keys take floating point numbers, and are used for ploting the figures and printing the table. Because of the log scale of the thickness axis, the minimum must be greater than 0.0. If it is set to 0.0, the corresponding value will be reassigned to 1.e-10. The unit key take a string as value and is used for the computation of the scaling factor of the input cross-section coefficients.
+
+#### Thickness units
 The supported units of the penetration depth, required for the non-equilibrium solutions, are : "10 mg/cm2" or "xg/cm2" where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). The table below shows the list of supported units for the penetration depth (target thickness) with the corresponding scale factor of the cross-section coefficients :
 
 | Supported units | Scale factor |
@@ -204,7 +208,7 @@ The variable key-value pairs are the initial conditions (ion charge state in a v
 | Q.i.j        | cross-sections coef | 0.0                     | floating point (double precision) | i and j are integers (unsigned). Moreover imin < i < imax and jmin < j < jmax                          |
 | Q.imax.jmax  | cross-sections coef | 0.0                     | floating point (double precision) | imax, jmax are integers (unsigned). Moreover imax-imin must be equal to jmax-jmin to form a nonsingular square matrix i.e. no zero-rows or zero-columns should be provided          |
 
-
+#### Cross-section units
 The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is a [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix). The supported units are summarized in the following table :
 
 | Supported units | Scale factor |
