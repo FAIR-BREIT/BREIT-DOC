@@ -130,11 +130,13 @@ For each fraction, starting from xmax (=maximum key, defined in the [thickness] 
 
 <img src="https://github.com/FAIR-BREIT/BREIT-DOC/blob/master/figures/distance-to-equilibrium-condition.png" width="400">
 
-If the condition is satisfied at x=xmax, a warning in the output results is printed. In addtion to the epsilon value, the estimation may be sensitive to
+If the condition is satisfied at x=xmax, a warning in the output results is printed telling that the estimated distance is found at the range limit. In addtion to the epsilon value, the estimation of the distance to equilibrium may be sensitive to
 
-* x-axis range
-* point.number
-* scaling factor like the thickness units
+* thickness units (scale the x-axis range)
+* thickness minimum and maximum values (x-axis range)
+* thickness point.number (the algorithm go through steps of (xmax-xmin)/point.number)
+
+The epsilon value should not be too large, otherwise the estimation will be erroneous. It should not be too small either, because the solution at equilibrium is asymptotic and is never reached (or reached at infinity). Therefore if the epsilon value is too small the estimated distance will be most likely at the range limit (xmax). If the epsilon value is reasonnable (on the order of 0.1% or 1%) and the estimated distance is found at xmax, then, most probably, the thickness units or thickness range should be modified accordingly. It is up to the user to find the proper setting for reliable distance-to-equilibrium estimation. 
 
 
 
