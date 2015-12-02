@@ -116,7 +116,9 @@ The [thickness] category has three key-value pairs, namely :
 The maximum and minimum keys take floating point numbers, and are only used for plotting the figures (i.e. setting up the ion fraction axis range). The epsilon key takes a floating point as value (double precision) and is used to compute the estimation of the distance to equilibrium for each ion fraction. The algorithm used for this estimation is the following :
 
 For each fraction, starting from xmax (=maximum key, defined in the [thickness] category) and going towards xmin, the distance-to-equilibrium is estimated if the following condition is satisfied:
-![distance to equilibrium condition](figures/distance-to-equilibrium-condition.png?raw=true "Condition to satisfy for the estimation of the distance-to-equilibrium")
+
+<img src="https://github.com/FAIR-BREIT/BREIT-DOC/blob/master/figures/distance-to-equilibrium-condition.png" width="150">
+
 If the condition is satisfied at x=xmax, a warning in the output results is printed. In addtion to the epsilon value, the estimation may be sensitive to
 
 * x-axis range
