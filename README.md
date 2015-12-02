@@ -149,8 +149,8 @@ Note that in this example the minimum key is not provided and will have a value 
 
 
 ### [cross.section] category
-The [cross.section] category has one key-value pair, namely the cross-sections unit, and variable key-value paris depending on the dimension of the system to be solved.
-The variable key-value pairs are the initial conditions (ion charge state in a vector form) and cross-section coefficients in a square matrix form.
+The [cross.section] category has one fixed key-value pair, namely the cross-sections unit, and variable key-value pairs depending on the dimension of the system to be solved.
+The variable key-value pairs are the initial conditions (ion charge state in a vector form) and cross-section coefficients in a square matrix form. The index of the initial conditions and cross-section coefficients must satisfy the following condition : 0 < i,j < 200. The key-values pairs for the [cross.section] category are summarized in the table below:
 
 
 | key          | meaning             | default value           | value type                        | comments                                                      |
