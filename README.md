@@ -221,6 +221,7 @@ The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is 
 | Gb              | 1.e-15       |
 | Tb              | 1.e-12       |
 
+#### Example
 
 ```bash
     [cross.section]
