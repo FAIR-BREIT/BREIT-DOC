@@ -1,4 +1,4 @@
-# [BREIT: Balance Rate Equations for Ion Transportation](http://breit.gsi.de/) - Documentation
+# [BREIT](http://breit.gsi.de/) - Documentation
 
 ---
 
