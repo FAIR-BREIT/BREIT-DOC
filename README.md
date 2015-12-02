@@ -16,6 +16,7 @@
         - [Example](#thickness-category-example)
     - [[fraction] category](#fraction-category)
         - [Example](#fraction-category-example)
+        - [Remark about the epsilon value](#fraction-category-remark-about-the-epsilon-value)
     - [[cross.section] category](#cross-section-category)
         - [Example](#cross-section-category-example)
 - [Output](#output)
@@ -164,7 +165,7 @@ The maximum and minimum keys take floating point numbers, and are only used for 
 ```
 Note that in this example the minimum key is not provided and will have a value of 0.0 by default.
 
-#### Remark about the epsilon value:
+#### Remark about the epsilon value
 
 The algorithm used for the distance-to-equilibrium estimation is the following :
 
