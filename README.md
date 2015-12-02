@@ -5,11 +5,11 @@
 [BREIT](http://breit.gsi.de/) is an online application which solve analytically the equilibrium and non-equilibrium charge state distributions equations (c.f. [HANS-DIETER BETZ Rev. Mod. Phys. 44, 465](http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.44.465)), provided the cross-sections and initial conditions as input. 
 The differential equations (non-equilibrium case) are solved using the eigenvalues decomposition method, and the asymptotic limits (equilibrium case) are solved by matrix inversion. 
 
-## Input file format
+### Input file format
 
 BREIT needs electron-loss and -capture cross-sections, as well as initial conditions as inputs in order to solve the (non-equilibrium) Betz equations. Other inputs are required, like cross-section units, thickness units, target mass number ... Only charge (or state) q greater or equal than zero and less than 200 are supported. 
 
-#### Format description : introduction
+#### Format description 
 
 An [INI-like format](https://en.wikipedia.org/wiki/INI_file) is used as input file. The INI-like input files are divided in several categories. Categories are indicated by square brackets and are :
 
@@ -19,7 +19,7 @@ An [INI-like format](https://en.wikipedia.org/wiki/INI_file) is used as input fi
 * [fraction]
 * [cross.section]
 
-Under each category key-value pairs can be found, for example as follow:
+Under each category, key-value pairs can be found, for example as follow:
 ```bash
     # <- comments marker
     [Category1]
@@ -34,9 +34,9 @@ The proper syntax of the categories and the keys must be respected and will be d
 Some keys are not required to run the program because they have default values, but some others, however, are required.
 Input file examples can be found [here](https://github.com/FAIR-BREIT/BREIT-CORE/blob/master/data/input/Example-8lvl-system-bis.txt) or [there](https://github.com/FAIR-BREIT/BREIT-CORE/blob/master/data/input/Example-15lvl-system.txt). 
 
-#### Categories and keys-values description
+## Categories and keys-values description
 
-##### [projectile] category
+### [projectile] category
 The [projectile] category has two key-value pairs, namely :
 
 
@@ -46,7 +46,7 @@ The [projectile] category has two key-value pairs, namely :
 | energy | unknown energy     | string     |
 
 and are only used to form the title in the output files. Both keys take a string as value.
-###### Example:
+#### Example:
 ```bash
     [projectile]
     symbol      = U
@@ -55,7 +55,7 @@ and are only used to form the title in the output files. Both keys take a string
 
 If the key-value pairs are not provided in the input file, the default values shown above in parenthesis are assigned.
 
-##### [target] category
+### [target] category
 The [target] category has three key-value pairs, namely :
 
 | key         | default value           | value type                        |
@@ -66,7 +66,7 @@ The [target] category has three key-value pairs, namely :
 
 The symbol and pressure keys are only used to form the title in the output files. These two keys take a string as value. The mass.number key take a floating point number (double precision) and is used for the computation of the scaling factor of the input cross-section coefficients. Therefore the mass.number value is a required value that must be positive and provided by the user. Note that the atomic mass value can be given instead of the mass number for a proper scaling.
 
-###### Example:
+#### Example:
 ```bash
     [target]
     symbol      = Ar
@@ -74,7 +74,7 @@ The symbol and pressure keys are only used to form the title in the output files
     pressure    = 1 mbar
 ```
 
-##### [thickness] category
+### [thickness] category
 The [thickness] category has four key-value pairs, namely :
 
 | key          | default value           | value type                        |
@@ -106,7 +106,7 @@ The supported units of the penetration depth, required for the non-equilibrium s
 Proper units and proper minimum/maximum values combination allow a better visibility/details of the resulting curves.
 
 
-###### Example:
+#### Example:
 ```bash
     unit         = cg/cm2
     maximum      = 30
@@ -115,7 +115,7 @@ Proper units and proper minimum/maximum values combination allow a better visibi
 ```
 
 
-##### [fraction] category
+### [fraction] category
 The [thickness] category has three key-value pairs, namely :
 
 | key          | default value  | value type                        |
@@ -138,7 +138,7 @@ If the condition is satisfied at x=xmax, a warning in the output results is prin
 
 
 
-###### Example:
+#### Example:
 ```bash
     [fraction]
     maximum     = 1.
@@ -148,7 +148,7 @@ Note that in this example the minimum key is not provided and will have a value 
 
 
 
-##### [cross.section] category
+### [cross.section] category
 The [cross.section] category has one key-value pair, namely the cross-sections unit, and variable key-value paris depending on the dimension of the system to be solved.
 The variable key-value pairs are the initial conditions (ion charge state in a vector form) and cross-section coefficients in a square matrix form.
 
@@ -182,7 +182,7 @@ The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is 
 | Gb              | 1.e-15       |
 | Tb              | 1.e-12       |
 
-#### Output
+## Output
 
 
 Output equilibrium results are provided on demand in the form of :
