@@ -71,7 +71,7 @@ The [projectile] category has two key-value pairs, which are summarized in the t
 | energy | unknown energy     | string     |
 
 and are only used to form the title in the output files. Both keys take a string as value.
-#### Example:
+#### Example
 ```bash
     [projectile]
     symbol      = U
@@ -93,7 +93,7 @@ The [target] category has three key-value pairs, which are summarized in the tab
 
 The symbol and pressure keys are only used to form the title in the output files. These two keys take a string as value. The mass.number key take a floating point number (double precision) and is used for the computation of the scaling factor of the input cross-section coefficients. Therefore the mass.number value is a required value that must be positive and provided by the user. Note that the atomic mass value can be given instead of the mass number for a proper scaling.
 
-#### Example:
+#### Example
 ```bash
     [target]
     symbol      = Ar
@@ -135,7 +135,7 @@ The supported units of the penetration depth, required for the non-equilibrium s
 Proper units and proper minimum/maximum values combination allow a better visibility/details of the resulting curves.
 
 
-#### Example:
+#### Example
 ```bash
     unit         = cg/cm2
     maximum      = 30
@@ -146,7 +146,7 @@ Proper units and proper minimum/maximum values combination allow a better visibi
 ---
 
 ### [fraction] category
-The [thickness] category has three key-value pairs, which are summarized in the table below :
+The [fraction] category has three key-value pairs, which are summarized in the table below :
 
 | key          | default value  | value type                        |
 |:------------:|:--------------:|:---------------------------------:|
@@ -157,7 +157,7 @@ The [thickness] category has three key-value pairs, which are summarized in the 
 The maximum and minimum keys take floating point numbers, and are only used for plotting the figures (i.e. setting up the ion fraction axis range). The epsilon key takes a floating point as value (double precision) and is used to compute the estimation of the distance to equilibrium for each ion fraction. 
 
 
-#### Example:
+#### Example
 ```bash
     [fraction]
     maximum     = 1.
