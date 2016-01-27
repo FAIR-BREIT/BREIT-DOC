@@ -25,7 +25,7 @@
 
 ---
 
-## Introduction
+## 1-Introduction
 
 [BREIT](http://breit.gsi.de/) is an online application which solve analytically the equilibrium and non-equilibrium charge state distributions equations (c.f. [HANS-DIETER BETZ Rev. Mod. Phys. 44, 465](http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.44.465)), provided the cross-sections and initial conditions as input. 
 The differential equations (non-equilibrium case) are solved using the eigenvalues decomposition method, and the asymptotic limits (equilibrium case) are solved by matrix inversion. 
@@ -61,7 +61,7 @@ Input file examples can be found [here](https://github.com/FAIR-BREIT/BREIT-CORE
 
 ---
 
-## Categories and keys-values description
+## 2-Categories and keys-values description
 
 ### [projectile] category
 The [projectile] category has two key-value pairs, which are summarized in the table below :
@@ -295,7 +295,7 @@ The supported cross-section units are : "cm2", "1e-16 cm2", or "xb", where x is 
 
 ---
 
-## Output
+## 3-Output
 
 
 Output equilibrium results are provided on demand in the form of :
