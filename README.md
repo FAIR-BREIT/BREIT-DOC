@@ -4,10 +4,10 @@
 
 **Table of Contents** 
 
-- [Introduction](#1-introduction)
+- [1-Introduction](#1-introduction)
     - [Input file format](#input-file-format)
         - [Format description](#format description)
-- [Categories and keys-values description](#2-categories-and-keys-values-description)
+- [2-Categories and keys-values description](#2-categories-and-keys-values-description)
     - [[projectile] category](#projectile-category)
         - [Example](#example)
     - [[target] category](#target-category)
@@ -21,7 +21,7 @@
     - [[cross.section] category](#crosssection-category)
         - [Cross-section units](#cross-section-units)
         - [Example](#example-4)
-- [Output](#3-output)
+- [3-Output](#3-output)
 
 ---
 
